@@ -22,7 +22,7 @@ function playRound(computerSelection, playerSelection)
     }
     else if (computerSelection =='rock' && playerSelection == 'paper')
     {
-        return ` You Win! ${playerSelection} beats ${computerSelection}`;
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
     }
     else if (computerSelection =='rock' && playerSelection == 'scissors')
     {

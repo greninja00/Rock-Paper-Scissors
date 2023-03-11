@@ -54,7 +54,7 @@ function game(){
     while((pp < 5)&&(cp < 5))
     {
         let computerSelection = getComputerChoice();
-        let playerSelection = prompt("choose your weapon");
+        let playerSelection = getComputerChoice();
         let winner = playRound(computerSelection, playerSelection);
         console.log(winner);
         if(winner[4] ==  "W")
@@ -70,7 +70,7 @@ function game(){
     {
         console.log("You wins the final match");
     }
-    else{
+    else if( cp == 5){
         console.log("computer wins with flying colors");
     }
 

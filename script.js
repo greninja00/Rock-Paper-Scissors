@@ -1,4 +1,4 @@
-function getComputerChoice()
+function getComputerChoice() // to get a computer choice
 {
     let guess = Math.random()*100;
     guess = Math.floor(guess)
@@ -12,67 +12,50 @@ function getComputerChoice()
 }
 
 
-function playRound(computerSelection, playerSelection)
+function playRound(computerSelection, playerSelection)  // to play round and get display content change
 {
     playerSelection = playerSelection.toLowerCase();
 
     if(computerSelection == playerSelection)
     {
-        return "Tie Game"
+        display.textContent = 'Tie game';
     }
     else if (computerSelection =='rock' && playerSelection == 'paper')
     {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        display.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     }
     else if (computerSelection =='rock' && playerSelection == 'scissors')
     {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        display.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
     else if (computerSelection =='paper' && playerSelection == 'scissors')
     {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        display.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     }
     else if (computerSelection =='paper' && playerSelection == 'rock')
     {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        display.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
     else if (computerSelection =='scissors' && playerSelection == 'rock')
     {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        display.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     }
     else if (computerSelection =='scissors' && playerSelection == 'paper')
     {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        display.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
 
 }
 
-function game(){
-    let pp =0;
-    let cp =0;
 
-    while((pp < 5)&&(cp < 5))
-    {
-        let computerSelection = getComputerChoice();
-        let playerSelection = getComputerChoice();
-        let winner = playRound(computerSelection, playerSelection);
-        console.log(winner);
-        if(winner[4] ==  "W")
-        {
-            pp++;
-        }
-        else if(winner[4] == "L")
-        {
-            cp++;
-        }
-    }
-    if( pp == 5)
-    {
-        console.log("You wins the final match");
-    }
-    else if( cp == 5){
-        console.log("computer wins with flying colors");
-    }
+const rock = document.querySelector('.Rock');
+const paper = document.querySelector('.Paper');
+const scissors = document.querySelector('.Scissors');  // query selection for dom manipulation
+const display = document.querySelector('.result');
+const scores = document.querySelector('.score-board')
 
-}
+rock.addEventListener('click',() =>{playRound(getComputerChoice(), 'rock')} );
+paper.addEventListener('click',() =>{playRound(getComputerChoice(), 'paper')} ); // butttons function
+scissors.addEventListener('click',() =>{playRound(getComputerChoice(), 'scissors')} );
+
 
